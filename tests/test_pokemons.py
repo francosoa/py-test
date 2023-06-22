@@ -12,5 +12,3 @@ class TestClass:
 
 
         assert output == type(result)
-
-        pass
