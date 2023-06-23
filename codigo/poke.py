@@ -22,11 +22,7 @@ class Pokemons:
         json_result = response.json()
 
         df = pd.json_normalize(json_result)
+        df = df.fillna('')
 
         return df
 
-
-all_api = Pokemons('https://pokemonapi.franciscovaldec.repl.co/pokemon')
-
-df = all_api.GetDataFrame()
-print(df)
