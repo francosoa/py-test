@@ -2,6 +2,7 @@ import pytest
 from codigo.poke import Pokemons
 import pandas as pd
 from pytest import mark as marker
+import logging
 
 
 class TestClass:
@@ -43,3 +44,18 @@ class TestClass:
         check_null = list(df.isna().sum())
 
         assert sum(check_null) == result
+
+    def test_check_if_all_column_is_correct(self, test_get_result_from_my_api):
+        df = test_get_result_from_my_api.GetDataFrame()
+        columns = df.columns
+
+        for col in columns:
+            lista = []
+            if col in ["attack", "defense", "generation", "hp", "id",
+                           "legendary", "name", "sp_atk", "sp_atk",
+                           "speed", "total", "type_1", "type_2", "sp_def"]:
+                logging.info(col)
+            else:
+                assert False, f"the column {col} there is not a column desired"
+
+
