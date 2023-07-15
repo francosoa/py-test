@@ -15,7 +15,6 @@ class TestClass:
 
         return request
 
-    @marker.dataframe_result
     def test_verify_the_type_of_result(self, test_get_result_from_my_api):
         response = test_get_result_from_my_api.GetAllPokemon()
         output = type(list())
